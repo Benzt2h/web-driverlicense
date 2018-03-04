@@ -38,6 +38,9 @@
             <a class="nav-link" href="admin.php">หน้าแรก<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="admin-admin.php">จัดการแอดมิน</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="admin-user.php">จัดการสมาชิก</a>
           </li>
           <li class="nav-item">
@@ -50,7 +53,7 @@
         </form>
       </div>
     </nav>
-    <a href="add_question.php" class="btn btn-success" >เพิ่มสมาชิก</a>
+    <a href="add_question.php" class="btn btn-success" >เพิ่มคำถาม</a>
 <div class="container">
 <table class="table">
   <thead class="thead-dark">

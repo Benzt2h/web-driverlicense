@@ -1,8 +1,7 @@
 <?php
-$id=$_POST['id'];
+$user=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
-$score=$_POST['score'];
 
 $serverName = "localhost";
 $userName = "root";
@@ -10,7 +9,7 @@ $userPassword = "";
 $dbName = "driver_license";
 
  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
+ $sql = "INSERT INTO admin (User,Password,Name) VALUES ('$user','$pass','$name')";  
  $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
@@ -59,8 +58,8 @@ $dbName = "driver_license";
       </div>
     </nav>
 <div class="container">
-    แก้ไขข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
+    เพิ่มข้อมูลเรียบร้อยแล้ว
+    <a href="admin-admin.php" class="btn btn-success">กลับ</a>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

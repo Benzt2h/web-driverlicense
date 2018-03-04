@@ -1,17 +1,13 @@
 <?php
-$id=$_POST['id'];
-$pass=$_POST['pass'];
-$name=$_POST['name'];
-$score=$_POST['score'];
+ $user = $_GET['id'];
+ $serverName = "localhost";
+ $userName = "root";
+ $userPassword = "";
+ $dbName = "driver_license";
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
- $query = mysqli_query($conn,$sql);
+  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+  $sql = "DELETE FROM admin WHERE User='$user'";
+  $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
 <html lang="en">
@@ -52,16 +48,18 @@ $dbName = "driver_license";
             <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0" >
+        <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-<div class="container">
-    แก้ไขข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
-</div>
+
+    <div class="container">
+    ลบข้อมูลเรียบร้อยแล้ว
+    <a href="admin-admin.php" class="btn btn-success">กลับ</a>
+    </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

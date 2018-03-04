@@ -1,18 +1,3 @@
-<?php
-$id=$_POST['id'];
-$pass=$_POST['pass'];
-$name=$_POST['name'];
-$score=$_POST['score'];
-
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
- $query = mysqli_query($conn,$sql);
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -59,8 +44,21 @@ $dbName = "driver_license";
       </div>
     </nav>
 <div class="container">
-    แก้ไขข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
+<form action="add-a_success.php" method="post">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" name="id">
+  </div>
+  <div class="form-group">
+    <label for="pass">Password</label>
+    <input type="text" class="form-control" name="pass">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

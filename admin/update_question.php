@@ -46,6 +46,9 @@ $dbName = "driver_license";
             <a class="nav-link" href="admin.php">หน้าแรก<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="admin-admin.php">จัดการแอดมิน</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="admin-user.php">จัดการสมาชิก</a>
           </li>
           <li class="nav-item">

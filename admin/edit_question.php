@@ -40,6 +40,9 @@ $dbName = "driver_license";
             <a class="nav-link" href="admin.php">หน้าแรก<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="admin-admin.php">จัดการแอดมิน</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="admin-user.php">จัดการสมาชิก</a>
           </li>
           <li class="nav-item">
@@ -56,7 +59,7 @@ $dbName = "driver_license";
 <form action="update_question.php" method="post">
     <div class="form-group">
     <label for="number">Number</label>
-    <input type="text" class="form-control" name="number" value="<?php echo $result['number']?>">
+    <input type="text" class="form-control" disabled="disabled" name="number" value="<?php echo $result['number']?>">
   </div>
   <div class="form-group">
     <label for="Question">Question</label>

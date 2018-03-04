@@ -1,17 +1,12 @@
 <?php
-$id=$_POST['id'];
-$pass=$_POST['pass'];
-$name=$_POST['name'];
-$score=$_POST['score'];
+ $serverName = "localhost";
+ $userName = "root";
+ $userPassword = "";
+ $dbName = "driver_license";
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
- $query = mysqli_query($conn,$sql);
+  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+  $sql = "SELECT * FROM admin";
+  $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
 <html lang="en">
@@ -52,15 +47,41 @@ $dbName = "driver_license";
             <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0" >
+        <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
+    <a href="add_admin.php" class="btn btn-success" >เพิ่มสมาชิก</a>
 <div class="container">
-    แก้ไขข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Pass</th>
+      <th scope="col">Name</th>
+      <th scope="col">Process</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+while($result=mysqli_fetch_array($query)):
+?>
+<tr>
+    <td><?php echo $result['User']?></td>
+    <td><?php echo $result['Password']?></td>
+    <td><?php echo $result['Name']?></td>
+    <td>
+    <a href="edit_admin.php?id=<?php echo $result['User']?>" class="btn btn-success" >Edit</a>
+    <a href="del_admin.php?id=<?php echo $result['User']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
+</tr>
+<?php
+endwhile;
+?>
+  </tbody>
+</table>
+
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -1,17 +1,14 @@
 <?php
-$id=$_POST['id'];
-$pass=$_POST['pass'];
-$name=$_POST['name'];
-$score=$_POST['score'];
-
+$user = $_GET['id'];
 $serverName = "localhost";
 $userName = "root";
 $userPassword = "";
 $dbName = "driver_license";
 
  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
+ $sql = "SELECT * FROM admin WHERE User='$user'";
  $query = mysqli_query($conn,$sql);
+ $result=mysqli_fetch_array($query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,8 +56,21 @@ $dbName = "driver_license";
       </div>
     </nav>
 <div class="container">
-    แก้ไขข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
+<form action="update_admin.php" method="post">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" disabled="disabled" name="id" value="<?php echo $result['User']?>">
+  </div>
+  <div class="form-group">
+    <label for="pass">Password</label>
+    <input type="text" class="form-control" name="pass" value="<?php echo $result['Password']?>">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" value="<?php echo $result['Name']?>">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
