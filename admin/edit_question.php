@@ -1,12 +1,14 @@
 <?php
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
+$number = $_GET['id'];
+$serverName = "localhost";
+$userName = "root";
+$userPassword = "";
+$dbName = "driver_license";
 
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "SELECT * FROM member";
-  $query = mysqli_query($conn,$sql);
+ $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+ $sql = "SELECT * FROM question WHERE number='$number'";
+ $query = mysqli_query($conn,$sql);
+ $result=mysqli_fetch_array($query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,43 +46,44 @@
             <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
+        <form class="form-inline mt-2 mt-md-0" >
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-    <a href="add_user.php" class="btn btn-success" >เพิ่มสมาชิก</a>
 <div class="container">
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Pass</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-      <th scope="col">Process</th>
-    </tr>
-  </thead>
-  <tbody>
-<?php
-while($result=mysqli_fetch_array($query)):
-?>
-<tr>
-    <td><?php echo $result['user']?></td>
-    <td><?php echo $result['password']?></td>
-    <td><?php echo $result['name']?></td>
-    <td><?php echo $result['score']?></td>
-    <td>
-    <a href="edit_user.php?id=<?php echo $result['user']?>" class="btn btn-success" >Edit</a>
-    <a href="del_user.php?id=<?php echo $result['user']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
-</tr>
-<?php
-endwhile;
-?>
-  </tbody>
-</table>
-
+<form action="update_question.php" method="post">
+    <div class="form-group">
+    <label for="number">Number</label>
+    <input type="text" class="form-control" name="number" value="<?php echo $result['number']?>">
+  </div>
+  <div class="form-group">
+    <label for="Question">Question</label>
+    <input type="text" class="form-control" name="question" value="<?php echo $result['question']?>">
+  </div>
+  <div class="form-group">
+    <label for="answer1">Answer1</label>
+    <input type="text" class="form-control" name="answer1" value="<?php echo $result['answer1']?>">
+  </div>
+  <div class="form-group">
+    <label for="answer2">Answer2</label>
+    <input type="text" class="form-control" name="answer2" value="<?php echo $result['answer2']?>">
+  </div>
+  <div class="form-group">
+    <label for="answer3">Answer3</label>
+    <input type="text" class="form-control" name="answer3" value="<?php echo $result['answer3']?>">
+  </div>
+  <div class="form-group">
+    <label for="answer4">Answer4</label>
+    <input type="text" class="form-control" name="answer4" value="<?php echo $result['answer4']?>">
+  </div>
+  <div class="form-group">
+    <label for="correct_answer">Correct Answer</label>
+    <input type="text" class="form-control" name="correct_answer" value="<?php echo $result['correct_answer']?>">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

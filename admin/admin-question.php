@@ -5,7 +5,7 @@
  $dbName = "driver_license";
 
   $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "SELECT * FROM member";
+  $sql = "SELECT * FROM question";
   $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
@@ -50,15 +50,18 @@
         </form>
       </div>
     </nav>
-    <a href="add_user.php" class="btn btn-success" >เพิ่มสมาชิก</a>
+    <a href="add_question.php" class="btn btn-success" >เพิ่มสมาชิก</a>
 <div class="container">
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Pass</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
+      <th scope="col">#</th>
+      <th scope="col">Question</th>
+      <th scope="col">Answer1</th>
+      <th scope="col">Answer2</th>
+      <th scope="col">Answer3</th>
+      <th scope="col">Answer4</th>
+      <th scope="col">Correct Answer</th>
       <th scope="col">Process</th>
     </tr>
   </thead>
@@ -67,13 +70,16 @@
 while($result=mysqli_fetch_array($query)):
 ?>
 <tr>
-    <td><?php echo $result['user']?></td>
-    <td><?php echo $result['password']?></td>
-    <td><?php echo $result['name']?></td>
-    <td><?php echo $result['score']?></td>
+    <td><?php echo $result['number']?></td>
+    <td><?php echo $result['question']?></td>
+    <td><?php echo $result['answer1']?></td>
+    <td><?php echo $result['answer2']?></td>
+    <td><?php echo $result['answer3']?></td>
+    <td><?php echo $result['answer4']?></td>
+    <td><?php echo $result['correct_answer']?></td>
     <td>
-    <a href="edit_user.php?id=<?php echo $result['user']?>" class="btn btn-success" >Edit</a>
-    <a href="del_user.php?id=<?php echo $result['user']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
+    <a href="edit_question.php?id=<?php echo $result['number']?>" class="btn btn-success" >Edit</a>
+    <a href="del_question.php?id=<?php echo $result['number']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
 </tr>
 <?php
 endwhile;

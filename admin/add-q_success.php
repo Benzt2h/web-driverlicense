@@ -1,12 +1,19 @@
 <?php
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
+$question=$_POST['question'];
+$answer1=$_POST['answer1'];
+$answer2=$_POST['answer2'];
+$answer3=$_POST['answer3'];
+$answer4=$_POST['answer4'];
+$correct_answer=$_POST['correct_answer'];
 
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "SELECT * FROM member";
-  $query = mysqli_query($conn,$sql);
+$serverName = "localhost";
+$userName = "root";
+$userPassword = "";
+$dbName = "driver_license";
+
+ $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+ $sql = "INSERT INTO question (question,answer1,answer2,answer3,answer4,correct_answer) VALUES ('$question','$answer1','$answer2','$answer3','$answer4','$correct_answer')";  
+ $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,43 +51,15 @@
             <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
+        <form class="form-inline mt-2 mt-md-0" >
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-    <a href="add_user.php" class="btn btn-success" >เพิ่มสมาชิก</a>
 <div class="container">
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Pass</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-      <th scope="col">Process</th>
-    </tr>
-  </thead>
-  <tbody>
-<?php
-while($result=mysqli_fetch_array($query)):
-?>
-<tr>
-    <td><?php echo $result['user']?></td>
-    <td><?php echo $result['password']?></td>
-    <td><?php echo $result['name']?></td>
-    <td><?php echo $result['score']?></td>
-    <td>
-    <a href="edit_user.php?id=<?php echo $result['user']?>" class="btn btn-success" >Edit</a>
-    <a href="del_user.php?id=<?php echo $result['user']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
-</tr>
-<?php
-endwhile;
-?>
-  </tbody>
-</table>
-
+    เพิ่มข้อมูลเรียบร้อยแล้ว
+    <a href="admin-question.php" class="btn btn-success">กลับ</a>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -1,11 +1,12 @@
 <?php
+ $id = $_GET['id'];
  $serverName = "localhost";
  $userName = "root";
  $userPassword = "";
  $dbName = "driver_license";
 
   $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "SELECT * FROM member";
+  $sql = "DELETE FROM question WHERE number='$id'";
   $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
@@ -50,38 +51,12 @@
         </form>
       </div>
     </nav>
-    <a href="add_user.php" class="btn btn-success" >เพิ่มสมาชิก</a>
-<div class="container">
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Pass</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-      <th scope="col">Process</th>
-    </tr>
-  </thead>
-  <tbody>
-<?php
-while($result=mysqli_fetch_array($query)):
-?>
-<tr>
-    <td><?php echo $result['user']?></td>
-    <td><?php echo $result['password']?></td>
-    <td><?php echo $result['name']?></td>
-    <td><?php echo $result['score']?></td>
-    <td>
-    <a href="edit_user.php?id=<?php echo $result['user']?>" class="btn btn-success" >Edit</a>
-    <a href="del_user.php?id=<?php echo $result['user']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
-</tr>
-<?php
-endwhile;
-?>
-  </tbody>
-</table>
 
-</div>
+    <div class="container">
+    ลบข้อมูลเรียบร้อยแล้ว
+    <a href="admin-question.php" class="btn btn-success">กลับ</a>
+    </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

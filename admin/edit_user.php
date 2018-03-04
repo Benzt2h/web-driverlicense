@@ -43,7 +43,7 @@ $dbName = "driver_license";
             <a class="nav-link" href="admin-user.php">จัดการสมาชิก</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">จัดการข้อสอบ</a>
+            <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0" >
