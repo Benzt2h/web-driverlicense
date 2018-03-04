@@ -9,10 +9,10 @@
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -34,33 +34,23 @@
             <a class="nav-link" href="#">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0" >
+        <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-<div class="container">
-<form action="add_success.php" method="post">
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="text" class="form-control" name="id">
-  </div>
-  <div class="form-group">
-    <label for="pass">Password</label>
-    <input type="text" class="form-control" name="pass">
-  </div>
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
+
+    <main role="main" class="container">
+      <div class="jumbotron">
+        <h1>ยินดีตอนรับ Admin</h1>
+      </div>
+    </main>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

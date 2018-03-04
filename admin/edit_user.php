@@ -1,13 +1,14 @@
 <?php
- $id = $_GET['id'];
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
+$id = $_GET['id'];
+$serverName = "localhost";
+$userName = "root";
+$userPassword = "";
+$dbName = "driver_license";
 
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "DELETE FROM tb_user WHERE ID='$id'";
-  $query = mysqli_query($conn,$sql);
+ $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+ $sql = "SELECT * FROM member WHERE user='$id'";
+ $query = mysqli_query($conn,$sql);
+ $result=mysqli_fetch_array($query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,10 +21,10 @@
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -45,22 +46,37 @@
             <a class="nav-link" href="#">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
+        <form class="form-inline mt-2 mt-md-0" >
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-
-    <div class="container">
-    ลบข้อมูลเรียบร้อยแล้ว
-    <a href="admin-user.php" class="btn btn-success">กลับ</a>
-    </div>
-
+<div class="container">
+<form action="update_user.php" method="post">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" name="id" value="<?php echo $result['user']?>">
+  </div>
+  <div class="form-group">
+    <label for="pass">Password</label>
+    <input type="text" class="form-control" name="pass" value="<?php echo $result['password']?>">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" value="<?php echo $result['name']?>">
+  </div>
+  <div class="form-group">
+    <label for="score">Score</label>
+    <input type="text" class="form-control" name="score" value="<?php echo $result['score']?>">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

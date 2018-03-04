@@ -1,14 +1,16 @@
 <?php
-$id = $_GET['id'];
+$id=$_POST['id'];
+$pass=$_POST['pass'];
+$name=$_POST['name'];
+
 $serverName = "localhost";
 $userName = "root";
 $userPassword = "";
 $dbName = "driver_license";
 
  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "SELECT * FROM tb_user WHERE ID='$id'";
+ $sql = "INSERT INTO member (user,password,name) VALUES ('$id','$pass','$name')";  
  $query = mysqli_query($conn,$sql);
- $result=mysqli_fetch_array($query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,10 +23,10 @@ $dbName = "driver_license";
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -53,26 +55,13 @@ $dbName = "driver_license";
       </div>
     </nav>
 <div class="container">
-<form action="update_user.php" method="post">
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="text" class="form-control" name="id" value="<?php echo $result['ID']?>">
-  </div>
-  <div class="form-group">
-    <label for="pass">Password</label>
-    <input type="text" class="form-control" name="pass" value="<?php echo $result['Pass']?>">
-  </div>
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" value="<?php echo $result['name']?>">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    เพิ่มข้อมูลเรียบร้อยแล้ว
+    <a href="admin-user.php" class="btn btn-success">กลับ</a>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

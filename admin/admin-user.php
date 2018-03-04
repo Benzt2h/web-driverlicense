@@ -5,7 +5,7 @@
  $dbName = "driver_license";
 
   $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-  $sql = "SELECT * FROM tb_user";
+  $sql = "SELECT * FROM member";
   $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
@@ -19,10 +19,10 @@
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -58,6 +58,7 @@
       <th scope="col">ID</th>
       <th scope="col">Pass</th>
       <th scope="col">Name</th>
+      <th scope="col">Score</th>
       <th scope="col">Process</th>
     </tr>
   </thead>
@@ -66,12 +67,13 @@
 while($result=mysqli_fetch_array($query)):
 ?>
 <tr>
-    <td><?php echo $result['ID']?></td>
-    <td><?php echo $result['Pass']?></td>
+    <td><?php echo $result['user']?></td>
+    <td><?php echo $result['password']?></td>
     <td><?php echo $result['name']?></td>
+    <td><?php echo $result['score']?></td>
     <td>
-    <a href="edit_user.php?id=<?php echo $result['ID']?>" class="btn btn-success" >Edit</a>
-    <a href="del_user.php?id=<?php echo $result['ID']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
+    <a href="edit_user.php?id=<?php echo $result['user']?>" class="btn btn-success" >Edit</a>
+    <a href="del_user.php?id=<?php echo $result['user']?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">del</a></td>
 </tr>
 <?php
 endwhile;
@@ -83,7 +85,7 @@ endwhile;
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

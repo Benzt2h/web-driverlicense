@@ -2,6 +2,7 @@
 $id=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
+$score=$_POST['score'];
 
 $serverName = "localhost";
 $userName = "root";
@@ -9,7 +10,7 @@ $userPassword = "";
 $dbName = "driver_license";
 
  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "UPDATE tb_user SET Pass='$pass',name='$name' WHERE ID='$id'";  
+ $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
  $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
@@ -23,10 +24,10 @@ $dbName = "driver_license";
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -61,7 +62,7 @@ $dbName = "driver_license";
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

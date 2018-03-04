@@ -1,16 +1,13 @@
 <?php
-$id=$_POST['id'];
-$pass=$_POST['pass'];
-$name=$_POST['name'];
+ $id = $_GET['id'];
+ $serverName = "localhost";
+ $userName = "root";
+ $userPassword = "";
+ $dbName = "driver_license";
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
- $sql = "INSERT INTO tb_user (ID,Pass,name) VALUES ('$id','$pass','$name')";  
- $query = mysqli_query($conn,$sql);
+  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+  $sql = "DELETE FROM member WHERE user='$id'";
+  $query = mysqli_query($conn,$sql);
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,10 +20,10 @@ $dbName = "driver_license";
     <title>Admin Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-top.css" rel="stylesheet">
+    <link href="../css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -48,20 +45,22 @@ $dbName = "driver_license";
             <a class="nav-link" href="#">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0" >
+        <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
-<div class="container">
-    เพิ่มข้อมูลเรียบร้อยแล้ว
+
+    <div class="container">
+    ลบข้อมูลเรียบร้อยแล้ว
     <a href="admin-user.php" class="btn btn-success">กลับ</a>
-</div>
+    </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js" ></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js" ></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
