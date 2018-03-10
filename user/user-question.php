@@ -52,6 +52,7 @@
     </nav>
 
     <div class="container">
+<form action="ch-answer.php" method="post">
 <table class="table">
 <?php
   $numberQ = [0,0,0,0,0];
@@ -63,7 +64,7 @@
       for($j=0;$j<=4;$j++){
         if($numberQ[$j]==$randomNumber){
           $randomNumber = rand(1,10);
-          $j--;
+          $j=0;
         }
       }
   }
@@ -74,9 +75,12 @@
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query);
   ?>
+
   <thead class="thead-dark">
     <tr>
       <th scope="col"><?php echo $result['question'] ?></th>
+      <input type="hidden" name="line" value="4">
+      <input type="hidden" name="q<?php echo $i; ?>" value="<?php echo $numberQ[$i]; ?>">
     </tr>
   </thead>
   <tbody>
@@ -85,34 +89,34 @@
     <div class="input-group">
       <div class="input-group-prepend">
       <div class="input-group-text">
-      <input type="radio" name="<?php echo $i; ?>" aria-label="Radio button for following text input">
+      <input type="radio" name="<?php echo $i; ?>" value="1" >
       </div>
     </div>
-    <input type="text" class="form-control" disabled="disabled" aria-label="Text input with radio button" value="<?php echo $result['answer1'] ?>" >
+    <input type="text" class="form-control" disabled="disabled" value="<?php echo $result['answer1'] ?>" >
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
       <div class="input-group-text">
-      <input type="radio" name="<?php echo $i; ?>" aria-label="Radio button for following text input">
+      <input type="radio" name="<?php echo $i; ?>" value="2">
       </div>
     </div>
-    <input type="text" class="form-control" disabled="disabled" aria-label="Text input with radio button" value="<?php echo $result['answer2'] ?>" >
+    <input type="text" class="form-control" disabled="disabled" value="<?php echo $result['answer2'] ?>" >
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
       <div class="input-group-text">
-      <input type="radio" name="<?php echo $i; ?>" value="<?php echo $result['answer1'] ?>" aria-label="Radio button for following text input">
+      <input type="radio" name="<?php echo $i; ?>" value="3">
       </div>
     </div>
-    <input type="text" class="form-control" disabled="disabled" aria-label="Text input with radio button" value="<?php echo $result['answer3'] ?>" >
+    <input type="text" class="form-control" disabled="disabled" value="<?php echo $result['answer3'] ?>" >
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
       <div class="input-group-text">
-      <input type="radio" name="<?php echo $i; ?>" aria-label="Radio button for following text input">
+      <input type="radio" name="<?php echo $i; ?>" value="4">
       </div>
     </div>
-    <input type="text" class="form-control" disabled="disabled" aria-label="Text input with radio button" value="<?php echo $result['answer4'] ?>" >
+    <input type="text" class="form-control" disabled="disabled" value="<?php echo $result['answer4'] ?>" >
     </div>
   </td>
 </tr>
@@ -120,9 +124,12 @@
 }
 ?>
   </tbody>
+  
 </table>
-
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
