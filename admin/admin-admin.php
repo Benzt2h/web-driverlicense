@@ -47,10 +47,7 @@
             <a class="nav-link" href="admin-question.php">จัดการข้อสอบ</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <a href="../logout.php" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
       </div>
     </nav>
     <a href="add_admin.php" class="btn btn-success" >เพิ่มสมาชิก</a>
