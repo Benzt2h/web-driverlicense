@@ -55,6 +55,7 @@
 <form action="ch-answer.php" method="post">
 <table class="table">
 <?php
+//TODO แก้สุ่มคำตอบ
   $numberQ = [0,0,0,0,0];
   for($i = 0;$i<=4;$i++){
       $randomNumber = rand(1,10);
