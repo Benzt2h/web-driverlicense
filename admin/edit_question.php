@@ -59,7 +59,7 @@ $dbName = "driver_license";
 <form action="update_question.php" method="post">
     <div class="form-group">
     <label for="number">Number</label>
-    <input type="text" class="form-control" disabled="disabled" name="number" value="<?php echo $result['number']?>">
+    <input type="text" class="form-control" readonly name="number" value="<?php echo $result['number']?>">
   </div>
   <div class="form-group">
     <label for="Question">Question</label>

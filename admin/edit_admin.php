@@ -59,7 +59,7 @@ $dbName = "driver_license";
 <form action="update_admin.php" method="post">
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="text" class="form-control" disabled="disabled" name="id" value="<?php echo $result['User']?>">
+    <input type="text" class="form-control" readonly name="id" value="<?php echo $result['User']?>">
   </div>
   <div class="form-group">
     <label for="pass">Password</label>
