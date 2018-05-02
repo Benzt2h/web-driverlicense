@@ -1,8 +1,9 @@
 <?php
 session_start();
 if(!isset($_SESSION['User'])){
-  echo "PLZ Login";
-  exit();
+  header("location:../login-admin.php");
+  //echo "PLZ Login";
+  //exit();
 }
 ?>
 <!doctype html>

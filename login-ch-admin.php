@@ -12,7 +12,7 @@ $dbName = "driver_license";
  $query = mysqli_query($conn,$sql);
  $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
  if(!$result)
-    echo "User and Password incorrect";
+ header("location:login-admin.php");
 else{
     $_SESSION['User']=$result['User'];
     $_SESSION['adminname']=$result['Name'];
