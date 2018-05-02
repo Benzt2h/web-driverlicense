@@ -1,5 +1,5 @@
 <?php
- $require '../config.php';
+ require '../config.php';
   $sql = "SELECT * FROM admin";
   $query = mysqli_query($conn,$sql);
 ?>
