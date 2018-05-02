@@ -14,10 +14,10 @@ require 'config.php';
     <title>Driver License</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/navbar-top.css" rel="stylesheet">
+    <link href="css/navbar-top.css" rel="stylesheet">
   </head>
 
   <body>
@@ -130,7 +130,7 @@ require 'config.php';
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js" ></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/jquery.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
