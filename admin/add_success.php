@@ -1,14 +1,9 @@
 <?php
+require '../config.php';
 $id=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "INSERT INTO member (user,password,name) VALUES ('$id','$pass','$name')";  
  $query = mysqli_query($conn,$sql);
 ?>

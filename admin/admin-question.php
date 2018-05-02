@@ -1,10 +1,5 @@
 <?php
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
-
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+  require '../config.php';
   $sql = "SELECT * FROM question";
   $query = mysqli_query($conn,$sql);
 ?>

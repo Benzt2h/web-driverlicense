@@ -1,4 +1,5 @@
 <?php
+require '../config.php';
 $question=$_POST['question'];
 $answer1=$_POST['answer1'];
 $answer2=$_POST['answer2'];
@@ -6,12 +7,6 @@ $answer3=$_POST['answer3'];
 $answer4=$_POST['answer4'];
 $correct_answer=$_POST['correct_answer'];
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "INSERT INTO question (question,answer1,answer2,answer3,answer4,correct_answer) VALUES ('$question','$answer1','$answer2','$answer3','$answer4','$correct_answer')";  
  $query = mysqli_query($conn,$sql);
 ?>

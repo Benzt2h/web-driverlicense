@@ -1,11 +1,6 @@
 <?php
+require '../config.php';
  $user = $_GET['id'];
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
-
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
   $sql = "DELETE FROM admin WHERE User='$user'";
   $query = mysqli_query($conn,$sql);
 ?>

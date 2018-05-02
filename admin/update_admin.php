@@ -1,14 +1,8 @@
 <?php
+require '../config.php';
 $user=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
-
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "UPDATE admin SET Password='$pass',Name='$name' WHERE User='$user'";  
  $query = mysqli_query($conn,$sql);
 ?>

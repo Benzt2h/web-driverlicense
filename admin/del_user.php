@@ -1,11 +1,6 @@
 <?php
+require '../config.php';
  $id = $_GET['id'];
- $serverName = "localhost";
- $userName = "root";
- $userPassword = "";
- $dbName = "driver_license";
-
-  $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
   $sql = "DELETE FROM member WHERE user='$id'";
   $query = mysqli_query($conn,$sql);
 ?>

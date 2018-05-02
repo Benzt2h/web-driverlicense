@@ -1,4 +1,5 @@
 <?php
+require '../config.php';
 $number=$_POST['number'];
 $question=$_POST['question'];
 $answer1=$_POST['answer1'];
@@ -7,12 +8,6 @@ $answer3=$_POST['answer3'];
 $answer4=$_POST['answer4'];
 $correct_answer=$_POST['correct_answer'];
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "UPDATE question SET question='$question',answer1='$answer1',answer2='$answer2',answer3='$answer3',answer4='$answer4',correct_answer='$correct_answer' WHERE number='$number'";  
  $query = mysqli_query($conn,$sql);
 ?>

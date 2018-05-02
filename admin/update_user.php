@@ -1,15 +1,10 @@
 <?php
+require '../config.php';
 $id=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
 $score=$_POST['score'];
 
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
  $query = mysqli_query($conn,$sql);
 ?>

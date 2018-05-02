@@ -1,11 +1,6 @@
 <?php
+require '../config.php';
 $number = $_GET['id'];
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
  $sql = "SELECT * FROM question WHERE number='$number'";
  $query = mysqli_query($conn,$sql);
  $result=mysqli_fetch_array($query);
