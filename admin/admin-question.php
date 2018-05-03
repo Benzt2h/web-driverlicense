@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['User'])&&$_SESSION['status']=="admin"){
+  header("location:../login-admin.php");
+}
+
   require '../config.php';
   $sql = "SELECT * FROM question";
   $query = mysqli_query($conn,$sql);

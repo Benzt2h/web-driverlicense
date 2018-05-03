@@ -16,6 +16,7 @@ $dbName = "driver_license";
 else{
     $_SESSION['User']=$result['User'];
     $_SESSION['adminname']=$result['Name'];
+    $_SESSION['status']="admin";
     session_write_close();
     header("location:admin/admin.php");
 }

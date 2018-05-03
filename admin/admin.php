@@ -1,9 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['User'])){
+if(!isset($_SESSION['User'])&&$_SESSION['status']=="admin"){
   header("location:../login-admin.php");
-  //echo "PLZ Login";
-  //exit();
 }
 ?>
 <!doctype html>

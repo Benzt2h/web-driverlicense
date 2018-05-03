@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['User'])&&$_SESSION['status']=="admin"){
+  header("location:../login-admin.php");
+}
+
 require '../config.php';
 $question=$_POST['question'];
 $answer1=$_POST['answer1'];
