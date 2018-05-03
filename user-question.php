@@ -48,15 +48,20 @@ require 'config.php';
 <table class="table">
 <?php
 //TODO แก้สุ่มคำตอบ
+$sql = "SELECT * FROM question ORDER BY number DESC LIMIT 1";
+$query = mysqli_query($conn,$sql);
+$result=mysqli_fetch_array($query);
+$maxNumber = $result['number'];
+
   $numberQ = range(1,30);
   for($i = 0;$i<=4;$i++){
-      $randomNumber = rand(1,48);
+      $randomNumber = rand(1,$maxNumber);
       if($i==0)
         $numberQ[$i]=$randomNumber;
       else{
       for($j=0;$j<=4;$j++){
         if($numberQ[$j]==$randomNumber){
-          $randomNumber = rand(1,48);
+          $randomNumber = rand(1,$maxNumber);
           $j=0;
         }
       }
