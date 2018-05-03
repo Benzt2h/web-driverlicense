@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2018 at 01:01 PM
+-- Generation Time: May 03, 2018 at 10:48 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -59,8 +59,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`user`, `password`, `name`, `score`) VALUES
-(11, '111', '11', 133),
-(22, '11', '11', NULL);
+(123455, '123455', '123455', 0);
 
 -- --------------------------------------------------------
 

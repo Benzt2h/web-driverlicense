@@ -1,13 +1,6 @@
 <?php
 session_start();
-$user=$_POST['user'];
-$password=$_POST['password'];
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "";
-$dbName = "driver_license";
-
- $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+require 'config.php';
  $sql = "SELECT * FROM member WHERE user='$user' AND Password='$password'";
  $query = mysqli_query($conn,$sql);
  $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
