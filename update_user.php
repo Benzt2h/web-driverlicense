@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['User'])){
+  header("location:index.php");
+}
+
+require 'config.php';
+$id=$_POST['id'];
+$pass=$_POST['pass'];
+$name=$_POST['name'];
+$score=$_POST['score'];
+
+ $sql = "UPDATE member SET password='$pass',name='$name',score='$score' WHERE user='$id'";  
+ $query = mysqli_query($conn,$sql);
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,7 +51,6 @@
           </li>
         </ul>
         <?php
-            session_start();
             if(!isset($_SESSION['User'])){
         ?>
         <a href="register.php" class="btn btn-outline-success my-2 my-sm-0">สมัครสมาชิก</a>
@@ -52,9 +67,7 @@
 
     <main role="main" class="container">
       <div class="jumbotron">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AizS6ChvF_s"></iframe>
-        </div>
+        <h1>แก้ไขข้อมูลเรียบร้อยแล้ว</h1>
       </div>
     </main>
     <!-- Bootstrap core JavaScript

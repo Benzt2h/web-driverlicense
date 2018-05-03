@@ -44,18 +44,29 @@
             }
             else {
         ?>
-        <a href="membership.php" class="btn btn-outline-success my-2 my-sm-0">แก้ไขข้อมูลส่วนตัว</a>
         <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
             <?php } ?>
       </div>
     </nav>
 
     <main role="main" class="container">
-      <div class="jumbotron">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AizS6ChvF_s"></iframe>
-        </div>
-      </div>
+        <div class="container">
+        <form action="register_update.php" method="post">
+         <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" name="id">
+         </div>
+         <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="text" class="form-control" name="pass">
+         </div>
+         <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name">
+         </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+         </div>
     </main>
     <!-- Bootstrap core JavaScript
     ================================================== -->

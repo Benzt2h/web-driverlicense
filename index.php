@@ -44,6 +44,7 @@
             }
             else {
         ?>
+        <a href="membership.php" class="btn btn-outline-success my-2 my-sm-0">แก้ไขข้อมูลส่วนตัว</a>
         <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
             <?php } ?>
       </div>
@@ -51,7 +52,8 @@
 
     <main role="main" class="container">
       <div class="jumbotron">
-        <h1>ยินดีตอนรับ</h1>
+        <h1>ยินดีตอนรับ<BR></h1>
+        <h2>คุณสามารถดูวีดีโอเพื่อรับความรู้การจราจร เพื่อเรียนรู้ก่อนทำข้อสอบได้</h2>
       </div>
     </main>
     <!-- Bootstrap core JavaScript

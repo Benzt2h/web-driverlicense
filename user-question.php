@@ -45,6 +45,7 @@ require 'config.php';
             <a class="nav-link" href="#">ทำข้อสอบ</a>
           </li>
         </ul>
+        <a href="membership.php" class="btn btn-outline-success my-2 my-sm-0">แก้ไขข้อมูลส่วนตัว</a>
         <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
       </div>
     </nav>
@@ -83,7 +84,7 @@ $maxNumber = $result['number'];
   <thead class="thead-dark">
     <tr>
       <th scope="col"><?php echo $result['question'] ?></th>
-      <input type="hidden" name="line" value="4">
+      <input type="hidden" name="line" value="29">
       <input type="hidden" name="q<?php echo $i; ?>" value="<?php echo $numberQ[$i]; ?>">
     </tr>
   </thead>

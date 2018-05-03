@@ -1,3 +1,15 @@
+<?php
+require 'config.php';
+$id=$_POST['id'];
+if(!isset($id)){
+    header("location:index.php");
+}
+$pass=$_POST['pass'];
+$name=$_POST['name'];
+
+ $sql = "INSERT INTO member (user,password,name) VALUES ('$id','$pass','$name')";  
+ $query = mysqli_query($conn,$sql);
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,7 +56,6 @@
             }
             else {
         ?>
-        <a href="membership.php" class="btn btn-outline-success my-2 my-sm-0">แก้ไขข้อมูลส่วนตัว</a>
         <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
             <?php } ?>
       </div>
@@ -52,9 +63,7 @@
 
     <main role="main" class="container">
       <div class="jumbotron">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AizS6ChvF_s"></iframe>
-        </div>
+        <h1>สมัครสมาชิกเรียบร้อยแล้ว</h1>
       </div>
     </main>
     <!-- Bootstrap core JavaScript

@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['User'])){
+  header("location:index.php");
+}
+
+require 'config.php';
+$id = $_SESSION['User'];
+ $sql = "SELECT * FROM member WHERE user='$id'";
+ $query = mysqli_query($conn,$sql);
+ $result=mysqli_fetch_array($query);
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,7 +48,6 @@
           </li>
         </ul>
         <?php
-            session_start();
             if(!isset($_SESSION['User'])){
         ?>
         <a href="register.php" class="btn btn-outline-success my-2 my-sm-0">สมัครสมาชิก</a>
@@ -51,11 +63,27 @@
     </nav>
 
     <main role="main" class="container">
-      <div class="jumbotron">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AizS6ChvF_s"></iframe>
+        <div class="container">
+        <form action="update_user.php" method="post">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" readonly name="id" value="<?php echo $result['user']?>">
+             </div>
+             <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="text" class="form-control" name="pass" value="<?php echo $result['password']?>">
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" value="<?php echo $result['name']?>">
+            </div>
+            <div class="form-group">
+                <label for="score">Score</label>
+                <input type="text" class="form-control" name="score" value="<?php echo $result['score']?>" readonly >
+            </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </div>
-      </div>
     </main>
     <!-- Bootstrap core JavaScript
     ================================================== -->
