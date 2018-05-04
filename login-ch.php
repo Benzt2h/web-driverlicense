@@ -1,6 +1,8 @@
 <?php
 session_start();
 require 'config.php';
+$user = $_POST['user'];
+$password = $_POST['password'];
  $sql = "SELECT * FROM member WHERE user='$user' AND Password='$password'";
  $query = mysqli_query($conn,$sql);
  $result=mysqli_fetch_array($query,MYSQLI_ASSOC);

@@ -15,6 +15,7 @@ $correct_answer=$_POST['correct_answer'];
 
  $sql = "INSERT INTO question (question,answer1,answer2,answer3,answer4,correct_answer) VALUES ('$question','$answer1','$answer2','$answer3','$answer4','$correct_answer')";  
  $query = mysqli_query($conn,$sql);
+ mysqli_set_charset($conn,"utf8");
 ?>
 <!doctype html>
 <html lang="en">
